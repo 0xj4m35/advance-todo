@@ -6,7 +6,7 @@
 export default function html([first, ...strings], ...args) {
   return (
     args
-      .reduce((acc, curr) => [...acc, ...curr, strings.shift()], [first])
+      .reduce((acc, curr) => acc.concat(curr, strings.shift()), [first])
       // Remove all Falsy values except 0
       .filter((x) => (x && x !== true) || x === 0)
       .join('')
